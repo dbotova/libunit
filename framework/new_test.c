@@ -11,14 +11,14 @@ t_unit_test	*new_test(char *name, test_func *p_test_func)
 		{
 			test->name = name;
 			test->pointer = p_test_func;
-			test->result = 0;
+			test->result = -10;
 			test->pid = -1;
 			test->next = NULL;
 		}
 		else
 		{
 			test->name = NULL;
-			test->result = 0;
+			test->result = -10;
 			test->pid = -1;
 			test->pointer = NULL;
 		}
