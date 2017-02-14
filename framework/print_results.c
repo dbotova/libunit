@@ -1,17 +1,26 @@
 #include "libunit.h"
 
-void	print_results(t_unit_test *testlist)
+int	print_results(t_unit_test *testlist)
 {
-	const char* codes[] = 
-	{
-		"OK", "KO", "SEGV", "BUSE",
-	};
+	t_unit_test *cur;
+	int total;
+	int passed;
+	char test_result;
 
-	while(testlist)
+	const char* codes[] = 
+	{"OK", "KO", "SEGV", "BUSE", "DEBUG"};
+	cur = testlist;
+	while(cur)
 	{
-		 char test_result = (char)testlist->result;
-		 //ft_printf("> %-30s ...... [%6d]\n", testlist->name, test_result);
-		 ft_printf("> %-30s ...... [%6s]\n", testlist->name, codes[test_result + 1]);
-		testlist = testlist->next;
+		//count passed
+		test_result = (char)cur->result;
+		ft_printf("> %-30s ...... [%6s]\n", cur->name, codes[test_result + 1]);
+		cur = cur->next;
+		total++;
 	}
+	free_all(testlist);
+	if (total == passed)
+		return (0);
+	else
+		return (-1);
 }

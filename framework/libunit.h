@@ -21,7 +21,6 @@ typedef	struct			s_unit_test
 
 typedef	struct			s_pid_list
 {
-	pid_t 				cpid; 
 	int 				wpid;
 	int 				status;
 	test_func 			*pointer;
@@ -31,6 +30,6 @@ t_unit_test	*new_test(char *name, test_func *p_test_func);
 void		free_all(t_unit_test **testlist);
 int			launch_tests(t_unit_test **testlist);
 void		load_test(t_unit_test **testlist, char *test_name, test_func *p_test_func);
-void		print_results(t_unit_test *testlist);
+int			print_results(t_unit_test *testlist);
 
 #endif

@@ -2,5 +2,5 @@
 
 int	bigger_str_test(void)
 {
-	return (9);	
+	return (3);	
 }

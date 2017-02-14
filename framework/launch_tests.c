@@ -1,62 +1,47 @@
 #include "libunit.h"
 
-static void sig_bus(int a)
+static int check_status(int status)
 {
-	(void)a;
-	exit (1);
-}
+	int result;
 
-static void sig_segv(int a)
-{
-	(void)a;
-	exit (2);
+	result = 10;
+	if (WIFSIGNALED(status))
+	{
+		if (WTERMSIG(status) == SIGBUS)
+			result = 1;
+		if (WTERMSIG(status) == SIGSEGV)
+			result = 2;
+	}
+	else
+		result = WEXITSTATUS(status);
+	return (result);
 }
 
 int		launch_tests(t_unit_test **testlist)
 {
 	t_unit_test *cur;
-	t_pid_list *plist;
-	int tmp;
+	t_pid_list plist;
 
-	plist = malloc(sizeof(t_pid_list));
-	if (testlist)
+	cur = *testlist;
+	while (cur)
 	{
-		signal(SIGSEGV, sig_segv);
-		signal(SIGBUS, sig_bus);
+		if ((cur->pid = fork()) < 0)
+			exit(1);
+		if (cur->pid == 0)
+			exit(cur->pointer());
+		else
+			cur = cur->next;
+	}
+	while ((plist.wpid = wait(&plist.status)) > 0)
+	{
 		cur = *testlist;
 		while (cur)
 		{
-			plist->cpid = fork();
-			if (plist->cpid < 0)
-				exit(1);
-			if (plist->cpid == 0)
-			{
-				tmp = cur->pointer();
-				exit(tmp);
-			}
-			else
-			{
-				cur->pid = plist->cpid;
-				cur = cur->next;
-			}
+			if (cur->pid == plist.wpid)
+				break;
+			cur = cur->next;
 		}
-		while ((plist->wpid = wait(&plist->status)) > 0)
-		{
-			cur = *testlist;
-			while (cur)
-			{
-				if (cur->pid == plist->wpid)
-					break;
-				cur = cur->next;
-			}
-			cur->result = WEXITSTATUS(plist->status);
-		}
-		signal(SIGSEGV, SIG_DFL);
-		signal(SIGBUS, SIG_DFL);
+		cur->result = check_status(plist.status);
 	}
-
-	print_results(*testlist);
-	free_all(testlist);
-	SMART_FREE(plist);
-	return (0);
+	return (print_results(*testlist));
 }
