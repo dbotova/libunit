@@ -19,10 +19,13 @@ size_t	ft_strlen(const char *str)
 
 	size = 0;
 	idx = 0;
-	while (str[idx] != '\0')
+	if (str)
 	{
-		size++;
-		idx++;
+		while (str[idx] != '\0')
+		{
+			size++;
+			idx++;
+		}
 	}
 	return (size);
 }

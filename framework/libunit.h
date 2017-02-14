@@ -7,7 +7,6 @@
 # include <signal.h>
 # include "ft_printf.h"
 # define SAMRT_FREE(x) {free(x), x = NULL}
-# define TIMEOUT 100
 
 typedef int test_func(void);
 
@@ -19,6 +18,14 @@ typedef	struct			s_unit_test
 	struct s_unit_test	*next;
 	test_func 			*pointer;
 }						t_unit_test;
+
+typedef	struct			s_pid_list
+{
+	pid_t 				cpid; 
+	int 				wpid;
+	int 				status;
+	test_func 			*pointer;
+}						t_pid_list;
 
 t_unit_test	*new_test(char *name, test_func *p_test_func);
 void		free_all(t_unit_test **testlist);

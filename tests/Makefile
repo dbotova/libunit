@@ -10,7 +10,7 @@ CFLAGS += -I $(INCLUDES)
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Werror -Wextra $(SRC) -o $(NAME)
+	gcc -g -ggdb -Wall -Werror -Wextra $(SRC) -o $(NAME)
 
 clean: 
 	rm -f $(OBJ)
