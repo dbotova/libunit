@@ -17,6 +17,7 @@ int	ft_strcpy_launcher(void)
 {
 	t_unit_test *testlist;
 
+	testlist = NULL;
 	ft_printf("STRCPY:\n");
 	load_test(&testlist, "Basic test for strcpy", &basic_cpy_test);
 	load_test(&testlist, "NULL test for strlcpy", &null_cpy_test);
