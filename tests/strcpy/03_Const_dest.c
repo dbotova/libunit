@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_Const_dest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbotova <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/14 19:24:25 by dbotova           #+#    #+#             */
-/*   Updated: 2017/02/14 19:24:27 by dbotova          ###   ########.fr       */
+/*   Created: 2017/02/14 21:47:56 by dbotova           #+#    #+#             */
+/*   Updated: 2017/02/14 21:47:57 by dbotova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "ft_strcpy_tests.h"
 
-int	main(void)
+int	const_dest_test(void)
 {
-	//ft_strlen_launcher();
-	ft_strcpy_launcher();
-	return (0);
+	char *src;
+	char *result;
+
+	result = NULL;
+	src = "Hello ";
+	result = ft_strcpy("42", src);
+	if (!result)
+		return (0);
+	else
+		return (-1);
 }
