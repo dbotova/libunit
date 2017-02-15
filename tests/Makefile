@@ -11,17 +11,35 @@
 # **************************************************************************** #
 
 FPATH = ../framework
-SRC	=	*.c $(FPATH)/*.a ./strlen/*c
 
-OBJ	=	*.o
-NAME = 	tests
+OBJ = main.o \
+      strlen/00_launcher.o \
+      strlen/01_basic_test.o \
+      strlen/02_null_test.o \
+      strlen/03_bigger_str_test.o
+
+HEADERS = strlen/ft_strlen_tests.h \
+          tests.h
+
+NAME = tests
+
+LIBUNIT=$(FPATH)/libunit.a
+LIBFT=$(FPATH)/libft.a
+
+CFLAGS += -Wall -Werror -Wextra
+LFLAGS += -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Werror -Wextra $(SRC) -o $(NAME)
+$(LIBUNIT):
+	$(MAKE) -C $(FPATH)
 
-clean: 
+$(OBJ): $(HEADERS)
+
+$(NAME): $(OBJ) $(LIBUNIT)
+	$(CC) $(LFLAGS) $(OBJ) $(LIBUNIT) $(LIBFT) -o $(NAME)
+
+clean:
 	rm -f $(OBJ)
 
 fclean: clean
