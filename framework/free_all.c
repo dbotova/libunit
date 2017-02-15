@@ -17,14 +17,12 @@ void	free_all(t_unit_test **testlist)
 	t_unit_test *cur;
 
 	cur = NULL;
-	if (testlist && *testlist)
+	cur = *testlist;
+	while(cur)
 	{
-		while(cur)
-		{
-			cur = *testlist;
-			*testlist = (*testlist)->next;
-			SMART_FREE(cur);
-		}
+		SMART_FREE(cur);
+		*testlist = (*testlist)->next;
+		cur = *testlist;
 	}
 	testlist = NULL;
 }

@@ -1,4 +1,4 @@
-#include "ft_strlen.h"
+#include "ft_strlen_tests.h"
 
 int	basic_test(void)
 {
@@ -8,7 +8,7 @@ int	basic_test(void)
 	str = "hello \n my friend";
 	result = 0;
 	result = ft_strlen(str);
-	if (result == 15)
+	if (result == 17)
 		return (0);
 	else
 		return (-1);

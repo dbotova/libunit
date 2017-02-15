@@ -1,5 +1,5 @@
 FPATH = ../framework
-SRC	=	*.c $(FPATH)/*.a ./ft_strlen/*c
+SRC	=	*.c $(FPATH)/*.a ./strlen/*c
 INCLUDES=$(FPATH)
 
 OBJ	=	*.o
@@ -10,7 +10,7 @@ CFLAGS += -I $(INCLUDES)
 all: $(NAME)
 
 $(NAME):
-	gcc -g -ggdb -Wall -Werror -Wextra $(SRC) -o $(NAME)
+	gcc -Wall -Werror -Wextra $(SRC) -o $(NAME)
 
 clean: 
 	rm -f $(OBJ)

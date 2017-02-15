@@ -1,5 +1,5 @@
 
-SRC	= launch_tests.c load_test.c new_test.c print_results.c free_all.c libunit.h ft_printf.h
+SRC	= launch_tests.c load_test.c new_test.c print_results.c free_all.c libunit.h libft.h
 
 OBJ	= launch_tests.o load_test.o new_test.o print_results.o free_all.o
 NAME = libunit.a

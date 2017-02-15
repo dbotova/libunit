@@ -8,17 +8,21 @@ int	print_results(t_unit_test *testlist)
 	char test_result;
 
 	const char* codes[] = 
-	{"OK", "KO", "SEGV", "BUSE", "DEBUG"};
+	{"KO", "OK", "SEGV", "BUSE", "DEBUG"};
 	cur = testlist;
+	total = 0;
+	passed = 0;
 	while(cur)
 	{
-		//count passed
+		if (cur->result == 255)
+			passed++;
 		test_result = (char)cur->result;
-		ft_printf("> %-30s ...... [%6s]\n", cur->name, codes[test_result + 1]);
+		ft_printf("> %-50s ...... [%6s]\n", cur->name, codes[test_result + 1]);
 		cur = cur->next;
 		total++;
 	}
-	free_all(testlist);
+	ft_printf("Your passed %d tests out of total %d tests\n", passed, total);
+	free_all(&testlist);
 	if (total == passed)
 		return (0);
 	else

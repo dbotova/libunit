@@ -5,8 +5,7 @@
 # include <unistd.h>
 # include <sys/wait.h>
 # include <signal.h>
-# include "ft_printf.h"
-# define SAMRT_FREE(x) {free(x), x = NULL}
+# include "libft.h"
 
 typedef int test_func(void);
 
