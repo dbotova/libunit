@@ -15,14 +15,15 @@
 void	free_all(t_unit_test **testlist)
 {
 	t_unit_test *cur;
+	t_unit_test *next;
 
-	cur = NULL;
+	next = NULL;
 	cur = *testlist;
 	while (cur)
 	{
+		next = cur->next;
 		SMART_FREE(cur);
-		*testlist = (*testlist)->next;
-		cur = *testlist;
+		cur = next;
 	}
 	testlist = NULL;
 }

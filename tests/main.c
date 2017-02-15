@@ -15,5 +15,6 @@
 int	main(void)
 {
 	ft_strlen_launcher();
+	//ft_strlen_launcher();
 	return (0);
 }

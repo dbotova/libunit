@@ -13,7 +13,7 @@
 #include "libunit.h"
 
 void	load_test(t_unit_test **testlist, char *test_name,
-	test_func *p_test_func)
+	t_test_func *p_test_func)
 {
 	t_unit_test *tmp;
 	t_unit_test *cur;

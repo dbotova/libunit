@@ -20,7 +20,7 @@ int	bigger_str_test(void)
 	str = "hello \n my friend tu-tu-tu-tu \0 lalalal";
 	result = 0;
 	result = ft_strlen(str);
-	if (result == 31)
+	if (result == 30)
 		return (0);
 	else
 		return (-1);

@@ -34,13 +34,13 @@ typedef	struct			s_pid_list
 {
 	int					wpid;
 	int					status;
-	test_func			*pointer;
+	t_test_func			*pointer;
 }						t_pid_list;
 
-t_unit_test				*new_test(char *name, test_func *p_test_func);
+t_unit_test				*new_test(char *name, t_test_func *p_test_func);
 void					free_all(t_unit_test **testlist);
 int						launch_tests(t_unit_test **testlist);
 void					load_test(t_unit_test **testlist,
-						char *test_name, test_func *p_test_func);
+						char *test_name, t_test_func *p_test_func);
 int						print_results(t_unit_test *testlist);
 #endif

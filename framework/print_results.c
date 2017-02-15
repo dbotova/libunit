@@ -12,7 +12,7 @@
 
 #include "libunit.h"
 
-static void	arr(char codes[])
+static void	arr(char *codes[])
 {
 	codes[0] = "KO";
 	codes[1] = "OK";
@@ -27,7 +27,7 @@ int			print_results(t_unit_test *testlist)
 	int			total;
 	int			passed;
 	char		test_result;
-	char		codes[5];
+	char		*codes[5];
 
 	arr(codes);
 	cur = testlist;

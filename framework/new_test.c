@@ -12,7 +12,7 @@
 
 #include "libunit.h"
 
-t_unit_test	*new_test(char *name, test_func *p_test_func)
+t_unit_test	*new_test(char *name, t_test_func *p_test_func)
 {
 	t_unit_test *test;
 
