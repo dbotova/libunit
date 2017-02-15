@@ -16,9 +16,14 @@ OBJ = main.o \
       strlen/00_launcher.o \
       strlen/01_basic_test.o \
       strlen/02_null_test.o \
-      strlen/03_bigger_str_test.o
+      strlen/03_bigger_str_test.o \
+      strcpy/00_launcher.o \
+      strcpy/01_Basic_test.o \
+      strcpy/02_Null_test.o \
+      strcpy/03_Const_dest.o
 
 HEADERS = strlen/ft_strlen_tests.h \
+          strcpy/ft_strcpy_tests.h \
           tests.h
 
 NAME = tests
