@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   launch_tests.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbotova <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/14 19:27:21 by dbotova           #+#    #+#             */
+/*   Updated: 2017/02/14 19:27:23 by dbotova          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libunit.h"
 
-static int check_status(int status)
+static int		check_status(int status)
 {
-	int result;
+	int			result;
 
 	result = 10;
 	if (WIFSIGNALED(status))
@@ -17,10 +29,10 @@ static int check_status(int status)
 	return (result);
 }
 
-int		launch_tests(t_unit_test **testlist)
+int				launch_tests(t_unit_test **testlist)
 {
-	t_unit_test *cur;
-	t_pid_list plist;
+	t_unit_test	*cur;
+	t_pid_list	plist;
 
 	cur = *testlist;
 	while (cur)
@@ -38,7 +50,7 @@ int		launch_tests(t_unit_test **testlist)
 		while (cur)
 		{
 			if (cur->pid == plist.wpid)
-				break;
+				break ;
 			cur = cur->next;
 		}
 		cur->result = check_status(plist.status);

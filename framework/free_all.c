@@ -18,7 +18,7 @@ void	free_all(t_unit_test **testlist)
 
 	cur = NULL;
 	cur = *testlist;
-	while(cur)
+	while (cur)
 	{
 		SMART_FREE(cur);
 		*testlist = (*testlist)->next;

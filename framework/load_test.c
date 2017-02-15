@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   load_test.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbotova <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/14 19:27:46 by dbotova           #+#    #+#             */
+/*   Updated: 2017/02/14 19:27:47 by dbotova          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libunit.h"
 
-void	load_test(t_unit_test **testlist, char *test_name, test_func *p_test_func)
+void	load_test(t_unit_test **testlist, char *test_name,
+	test_func *p_test_func)
 {
 	t_unit_test *tmp;
 	t_unit_test *cur;
