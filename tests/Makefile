@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 FPATH = ../framework
-SRC	=	*.c $(FPATH)/*.a ./strlen/*c
+SRC	=	*.c $(FPATH)/*.a ./strlen/*c ./strcpy/*c
 
 OBJ	=	*.o
 NAME = 	tests

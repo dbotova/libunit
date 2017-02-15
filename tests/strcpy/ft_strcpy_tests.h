@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbotova <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/14 19:24:25 by dbotova           #+#    #+#             */
-/*   Updated: 2017/02/14 19:24:27 by dbotova          ###   ########.fr       */
+/*   Created: 2017/02/14 21:48:52 by dbotova           #+#    #+#             */
+/*   Updated: 2017/02/14 21:48:53 by dbotova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef FT_STRCPY_TESTS_H
+# define FT_STRCPY_TESTS_H
+# include "../../framework/libunit.h"
+# include "../../framework/libft.h"
 
-int	main(void)
-{
-	//ft_strlen_launcher();
-	ft_strcpy_launcher();
-	return (0);
-}
+int	ft_strcpy_launcher(void);
+int	basic_cpy_test(void);
+int null_cpy_test(void);
+int	const_dest_test(void);
+
+#endif
